@@ -32,19 +32,40 @@ if __name__ == "__main__":
     imp = impulso_unitario(n)
     
     imp_pi = np.pi * imp
+
+    # testes com sequência sinusoidal
+
+    fs_sin = 0.1*10**3
+    ts_sin = 1/fs_sin
+    n_sin = np.arange(-1, 1, ts_sin)
+    seq_sin = sinusoidal(n_sin, f=2)
+
+    sin_teste = degrau_unitario(n_sin) * seq_sin
     
     fig, ((ax_degrau, ax_relu), (ax_impulso, ax_pi_impulso), (ax_sinu, ax_sin_teste), (ax_exp, ax_exp_teste)) = plt.subplots(4, 2)
     ax_degrau.stem(n, degrau)
     ax_degrau.set_title("Função degrau")
+    ax_degrau.grid(True)
 
     ax_relu.stem(n, relu)
     ax_relu.set_title("Função relu (step * x)")
+    ax_relu.grid(True)
 
     ax_impulso.stem(n, imp)
     ax_impulso.set_title("Função impulso")
+    ax_impulso.grid(True)
 
     ax_pi_impulso.stem(n, imp_pi)
     ax_pi_impulso.set_title("Função impulso * pi")
+    ax_pi_impulso.grid(True)
     
+    ax_sinu.stem(n_sin, seq_sin)
+    ax_sinu.set_title("Sequência sinusoidal")
+    ax_sinu.grid(True)
+
+    ax_sin_teste.stem(n_sin, sin_teste)
+    ax_sin_teste.set_title("Seno * degrau")
+    ax_sin_teste.grid(True)
+
     plt.subplots_adjust(hspace=0.5)
     plt.show()
