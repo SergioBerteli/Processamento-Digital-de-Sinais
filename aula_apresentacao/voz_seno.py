@@ -2,8 +2,6 @@ import numpy as np
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io.wavfile import write
-import matplotlib.pyplot as plt
-from scipy.io.wavfile import write
 
 if __name__ == "__main__":
     sample_rate = 8*10**3
