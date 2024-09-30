@@ -35,3 +35,4 @@ if __name__ == "__main__":
     ax_out.stem(n, media)
 
     plt.show()
+

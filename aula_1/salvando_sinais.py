@@ -33,5 +33,9 @@ if __name__ == "__main__":
     exp_normalizado = normaliza_sinal(exp_teste)
     sinais.salva_sinal(exp_normalizado, f_samp, 'exp.pcm')
 
-    plt.stem(n, exp_normalizado)
-    plt.show()
+    fig, (ax_imp, ax_step, ax_sin, ax_exp) = plt.subplots(4, 1)
+    ax_imp.stem(n, imp)
+    ax_step.stem(n, degrau)
+    ax_sin.stem(n, seq_sin)
+    ax_exp.stem(n, exp_normalizado)
+    #plt.show()
